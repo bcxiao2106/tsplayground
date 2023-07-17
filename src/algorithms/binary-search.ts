@@ -1,3 +1,5 @@
+import { IAlgorithm, TimeComplexity } from "../typings/typings";
+
 /**
  * @param nums Array of numbers, sorted
  * @param target Targeted number
@@ -28,6 +30,6 @@ export function binarySearch(nums: number[], target: number): number {
   return targetIndex;
 }
 
-export const BinarySearch: Object = {
-    complexity: 'O(log n)'
+export const BinarySearch: IAlgorithm = {
+    complexity: TimeComplexity.logn
 }

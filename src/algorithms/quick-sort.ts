@@ -1,3 +1,5 @@
+import { IAlgorithm, TimeComplexity } from "../typings/typings";
+
 /**
  * @param nums An unsorted numeric array
  * @param low 'from' index of a partition
@@ -45,4 +47,8 @@ function swap(nums: number[], i: number, j: number) {
     let temp: number = nums[i];
     nums[i] = nums[j];
     nums[j] = temp;
+}
+
+export const QuickSort: IAlgorithm = {
+    complexity: TimeComplexity.nlogn
 }

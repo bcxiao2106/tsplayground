@@ -1,5 +1,6 @@
 import { binarySearch } from "./algorithms/binary-search";
 import { kSum } from "./algorithms/ksum";
+import { mergeSort } from "./algorithms/merge-sort";
 import { quickSort } from "./algorithms/quick-sort";
 import { getNumericArray } from "./utils/array";
 
@@ -19,6 +20,12 @@ let nums3: number[] = getNumericArray(10, 1, 30, false, true);
 console.log(`Quick Sort INPUT: `, nums3);
 quickSort(nums3, 0, 9);
 console.log(`Quick Sort RESULT: `, nums3);
+
+//Merge sort
+let nums4: number[] = getNumericArray(10, 1, 30, false, true);
+console.log(`Merge Sort INPUT: `, nums4);
+mergeSort(nums4);
+console.log(`Merge Sort RESULT: `, nums4);
 
 function kSumProblem(nums: number[], target: number, k: number) {
     nums.sort((a: number, b: number) => a - b);
