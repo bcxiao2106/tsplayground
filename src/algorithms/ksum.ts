@@ -1,3 +1,11 @@
+/**
+ * @param nums array of numbers
+ * @param target target number
+ * @param start start index
+ * @param k number of operands
+ * @returns number[][k]
+ * @description time complexity: O(n^(k - 1))
+ */
 export function kSum(nums: number[], target: number, start: number, k: number, ): number[][] {
     let res: number[][] = [];
     if(start == nums.length) return res;
@@ -15,6 +23,14 @@ export function kSum(nums: number[], target: number, start: number, k: number, )
     return res;
 }
 
+/**
+ * 
+ * @param nums array of numbers
+ * @param target target number
+ * @param start start index
+ * @returns number[][2]
+ * @description time complexity: O(n)
+ */
 export function twoSum(nums: number[], target: number, start: number): number[][] {
     let res: number[][] = [];
     let left: number = start, right = nums.length - 1;
