@@ -1,3 +1,10 @@
+/**
+ * @param [length=30] The length of the array, default 30
+ * @param [min=0] Minimum value, default 0
+ * @param [max = 100] Maximum value, default 100
+ * @param [sort=false] Return a sorted array or NOT, default: FALSE
+ * @param [allowDuplicate=true] Allow duplicated values or NOT, defult: TRUE
+ */
 export function getNumericArray(length: number = 30, min: number = 0, max: number = 100, sort: boolean = false, allowDuplicate: boolean = true) {
     let arr: number[] = [];
     while(arr.length < length) {

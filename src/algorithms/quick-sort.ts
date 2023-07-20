@@ -1,16 +1,24 @@
 import { IAlgorithm, TimeComplexity } from "../typings/typings";
+import { swap } from "../utils/functions";
+
+/**
+ * @param nums An unsorted numeric array
+ * @description Time complexity: O(nlog(n))
+ */
+export function quickSort(nums: number[]) {
+    sort(nums, 0, nums.length - 1);
+}
 
 /**
  * @param nums An unsorted numeric array
  * @param low 'from' index of a partition
  * @param high 'to' index of a partition
- * @description Time complexity: O(nlog(n))
  */
-export function quickSort(nums: number[], low: number, high: number) {
+function sort(nums: number[], low: number, high: number) {
     if(low < high) {
         let patitionIndex: number = partition(nums, low, high);
-        quickSort(nums, low, patitionIndex - 1);
-        quickSort(nums, patitionIndex + 1, high);
+        sort(nums, low, patitionIndex - 1);
+        sort(nums, patitionIndex + 1, high);
     }
 }
 
@@ -25,6 +33,19 @@ function partition(nums: number[], low: number, high: number): number {
     }
     swap(nums, i + 1, high);
     return i + 1;
+}
+
+function partitionWithLowBoundPivot(nums: number[], low: number, high: number): number {
+    let pivot: number = nums[low]; //Choose a pivot
+    let i: number = high + 1;
+    for(let j = high; j >= low; j--) {
+        if(nums[j] > pivot) {
+            i--;
+            swap(nums, i, j);
+        }
+    }
+    swap(nums, i - 1, low);
+    return i - 1;
 }
 
 function partitionWithRandomPivot(nums: number[], low: number, high: number): number {
@@ -42,12 +63,7 @@ function partitionWithRandomPivot(nums: number[], low: number, high: number): nu
     return i + 1;
 }
 
-function swap(nums: number[], i: number, j: number) {
-    if(i == j) return;
-    let temp: number = nums[i];
-    nums[i] = nums[j];
-    nums[j] = temp;
-}
+
 
 export const QuickSort: IAlgorithm = {
     complexity: TimeComplexity.nlogn
